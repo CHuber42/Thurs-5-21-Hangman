@@ -1,0 +1,11 @@
+@using Game.Models;
+
+<h1>Hangman</h1>
+
+  <p><a href="/game/new">Create a new Game</a></p>
+
+
+@foreach (GameClass game in Model)
+{
+  <p><a href="/game/@game.id">Game #@game.id</a></p>
+}

@@ -1,0 +1,24 @@
+@using Game.Models;
+
+<h3>guesses remaining: @Model.FailsRemaining</h3>
+
+@foreach (Letter letter in Model.Letters)
+{
+  if (letter.Visible == true)
+  {
+    <span>@letter.LetterOfWord</span>
+  }
+  else
+  {
+    <span>_</span>
+  }
+}
+<p></p>
+<form action="/game/@Model.id/letter/update" method="post">
+  <input id="gameid" name="gameid" type="hidden" value="@Model.id">
+  <input type="text" maxlength="1" id="guess" name="guess" placeholder="Guess a Letter"><br>
+  <button type="submit">Guess</button>
+</form>
+
+<a href="/game">Back to Games</a><br>
+<a href="/">Home</a>
